@@ -207,10 +207,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   <FormLabel>Price</FormLabel>
                   <FormControl>
                     <Input
-                      type="number"
                       disabled={loading}
                       placeholder="10"
-                      {...field}
+                      type="number"
+                      step="0.01"
+                      value={field.value}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                     />
                   </FormControl>
                   <FormMessage />
