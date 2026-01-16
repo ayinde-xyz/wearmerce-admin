@@ -10,7 +10,7 @@ import {
 import { SizeColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";

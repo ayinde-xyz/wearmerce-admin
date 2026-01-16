@@ -21,8 +21,8 @@ import axios from "axios";
 import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
-import { set, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
 interface SettingsFormProps {
@@ -107,7 +107,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
                   <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input
-                      className="w-[300px]"
+                      className="w-75"
                       disabled={loading}
                       placeholder="Store name"
                       {...field}

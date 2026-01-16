@@ -21,7 +21,7 @@ import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -61,7 +61,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       if (initialData) {
         await axios.patch(
           `/api/${params.storeId}/billboards/${params.billboardId}`,
-          data
+          data,
         );
       } else {
         await axios.post(`/api/${params.storeId}/billboards`, data);
@@ -82,14 +82,14 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     try {
       setLoading(true);
       await axios.delete(
-        `/api/${params.storeId}/billboards/${params.billboardId}`
+        `/api/${params.storeId}/billboards/${params.billboardId}`,
       );
       router.refresh();
       router.push(`/dashboard/${params.storeId}/billboards`);
       toast.success("Billboard deleted.");
     } catch (error: any) {
       toast.error(
-        "Make sure you removed all categories using this billboard first."
+        "Make sure you removed all categories using this billboard first.",
       );
     } finally {
       setLoading(false);

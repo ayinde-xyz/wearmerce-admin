@@ -27,7 +27,7 @@ import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -69,7 +69,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
       if (initialData) {
         await axios.patch(
           `/api/${params.storeId}/categories/${params.categoryId}`,
-          data
+          data,
         );
       } else {
         await axios.post(`/api/${params.storeId}/categories`, data);
@@ -90,14 +90,14 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
     try {
       setLoading(true);
       await axios.delete(
-        `/api/${params.storeId}/categories/${params.categoryId}`
+        `/api/${params.storeId}/categories/${params.categoryId}`,
       );
       router.refresh();
       router.push(`/dashboard/${params.storeId}/categories`);
       toast.success("Category deleted.");
     } catch (error: any) {
       toast.error(
-        "Make sure you removed all products using this category first."
+        "Make sure you removed all products using this category first.",
       );
     } finally {
       setLoading(false);

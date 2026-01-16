@@ -10,7 +10,7 @@ import {
 import { BillboardColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
@@ -39,7 +39,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       router.refresh();
     } catch (error) {
       toast.error(
-        "Make sure you removed all categories using this billboard first."
+        "Make sure you removed all categories using this billboard first.",
       );
     } finally {
       setOpen(false);

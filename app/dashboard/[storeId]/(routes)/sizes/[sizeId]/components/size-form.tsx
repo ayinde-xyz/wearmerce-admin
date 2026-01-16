@@ -21,7 +21,7 @@ import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -59,7 +59,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({ initialData }) => {
       if (initialData) {
         await axios.patch(
           `/api/${params.storeId}/sizes/${params.sizeId}`,
-          data
+          data,
         );
       } else {
         await axios.post(`/api/${params.storeId}/sizes`, data);

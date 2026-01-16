@@ -21,7 +21,7 @@ import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -62,7 +62,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({ initialData }) => {
       if (initialData) {
         await axios.patch(
           `/api/${params.storeId}/colors/${params.colorId}`,
-          data
+          data,
         );
       } else {
         await axios.post(`/api/${params.storeId}/colors`, data);
