@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   try {
     const { storeId } = await params;
@@ -17,7 +17,7 @@ export async function POST(
 
     const body = await req.json();
 
-    const { name, billboardId } = body;
+    const { name } = body;
 
     if (!userId) {
       return new NextResponse("Unauthenticated", { status: 401 });
@@ -25,9 +25,6 @@ export async function POST(
 
     if (!name) {
       return new NextResponse("Name is required", { status: 400 });
-    }
-    if (!billboardId) {
-      return new NextResponse("Billboard Id is required", { status: 400 });
     }
     if (!storeId) {
       return new NextResponse("Store ID is required", { status: 400 });
@@ -47,7 +44,6 @@ export async function POST(
     const category = await prismadb.category.create({
       data: {
         name,
-        billboardId,
         storeId: storeId,
       },
     });
@@ -61,7 +57,7 @@ export async function POST(
 
 export async function GET(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   try {
     const { storeId } = await params;

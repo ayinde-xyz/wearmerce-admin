@@ -372,20 +372,6 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
-export type StoreCreateNestedOneWithoutBillboardsInput = {
-  create?: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
-  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutBillboardsInput
-  connect?: Prisma.StoreWhereUniqueInput
-}
-
-export type StoreUpdateOneRequiredWithoutBillboardsNestedInput = {
-  create?: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
-  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutBillboardsInput
-  upsert?: Prisma.StoreUpsertWithoutBillboardsInput
-  connect?: Prisma.StoreWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutBillboardsInput, Prisma.StoreUpdateWithoutBillboardsInput>, Prisma.StoreUncheckedUpdateWithoutBillboardsInput>
-}
-
 export type StoreCreateNestedOneWithoutCategoriesInput = {
   create?: Prisma.XOR<Prisma.StoreCreateWithoutCategoriesInput, Prisma.StoreUncheckedCreateWithoutCategoriesInput>
   connectOrCreate?: Prisma.StoreCreateOrConnectWithoutCategoriesInput
@@ -398,6 +384,20 @@ export type StoreUpdateOneRequiredWithoutCategoriesNestedInput = {
   upsert?: Prisma.StoreUpsertWithoutCategoriesInput
   connect?: Prisma.StoreWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutCategoriesInput, Prisma.StoreUpdateWithoutCategoriesInput>, Prisma.StoreUncheckedUpdateWithoutCategoriesInput>
+}
+
+export type StoreCreateNestedOneWithoutBillboardsInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutBillboardsInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutBillboardsNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutBillboardsInput
+  upsert?: Prisma.StoreUpsertWithoutBillboardsInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutBillboardsInput, Prisma.StoreUpdateWithoutBillboardsInput>, Prisma.StoreUncheckedUpdateWithoutBillboardsInput>
 }
 
 export type StoreCreateNestedOneWithoutSizesInput = {
@@ -498,74 +498,6 @@ export type StoreUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.StoreScalarWhereInput | Prisma.StoreScalarWhereInput[]
 }
 
-export type StoreCreateWithoutBillboardsInput = {
-  id?: string
-  name: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutStoresInput
-  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
-  sizes?: Prisma.SizeCreateNestedManyWithoutStoreInput
-  colors?: Prisma.ColorCreateNestedManyWithoutStoreInput
-  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
-  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
-}
-
-export type StoreUncheckedCreateWithoutBillboardsInput = {
-  id?: string
-  name: string
-  userId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
-  sizes?: Prisma.SizeUncheckedCreateNestedManyWithoutStoreInput
-  colors?: Prisma.ColorUncheckedCreateNestedManyWithoutStoreInput
-  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
-  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
-}
-
-export type StoreCreateOrConnectWithoutBillboardsInput = {
-  where: Prisma.StoreWhereUniqueInput
-  create: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
-}
-
-export type StoreUpsertWithoutBillboardsInput = {
-  update: Prisma.XOR<Prisma.StoreUpdateWithoutBillboardsInput, Prisma.StoreUncheckedUpdateWithoutBillboardsInput>
-  create: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
-  where?: Prisma.StoreWhereInput
-}
-
-export type StoreUpdateToOneWithWhereWithoutBillboardsInput = {
-  where?: Prisma.StoreWhereInput
-  data: Prisma.XOR<Prisma.StoreUpdateWithoutBillboardsInput, Prisma.StoreUncheckedUpdateWithoutBillboardsInput>
-}
-
-export type StoreUpdateWithoutBillboardsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutStoresNestedInput
-  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
-  sizes?: Prisma.SizeUpdateManyWithoutStoreNestedInput
-  colors?: Prisma.ColorUpdateManyWithoutStoreNestedInput
-  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
-  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
-}
-
-export type StoreUncheckedUpdateWithoutBillboardsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
-  sizes?: Prisma.SizeUncheckedUpdateManyWithoutStoreNestedInput
-  colors?: Prisma.ColorUncheckedUpdateManyWithoutStoreNestedInput
-  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
-  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
-}
-
 export type StoreCreateWithoutCategoriesInput = {
   id?: string
   name: string
@@ -628,6 +560,74 @@ export type StoreUncheckedUpdateWithoutCategoriesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   billboards?: Prisma.BillboardUncheckedUpdateManyWithoutStoreNestedInput
+  sizes?: Prisma.SizeUncheckedUpdateManyWithoutStoreNestedInput
+  colors?: Prisma.ColorUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutBillboardsInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutStoresInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  sizes?: Prisma.SizeCreateNestedManyWithoutStoreInput
+  colors?: Prisma.ColorCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutBillboardsInput = {
+  id?: string
+  name: string
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  sizes?: Prisma.SizeUncheckedCreateNestedManyWithoutStoreInput
+  colors?: Prisma.ColorUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutBillboardsInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
+}
+
+export type StoreUpsertWithoutBillboardsInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutBillboardsInput, Prisma.StoreUncheckedUpdateWithoutBillboardsInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutBillboardsInput, Prisma.StoreUncheckedCreateWithoutBillboardsInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutBillboardsInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutBillboardsInput, Prisma.StoreUncheckedUpdateWithoutBillboardsInput>
+}
+
+export type StoreUpdateWithoutBillboardsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutStoresNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  sizes?: Prisma.SizeUpdateManyWithoutStoreNestedInput
+  colors?: Prisma.ColorUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutBillboardsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
   sizes?: Prisma.SizeUncheckedUpdateManyWithoutStoreNestedInput
   colors?: Prisma.ColorUncheckedUpdateManyWithoutStoreNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput

@@ -29,6 +29,7 @@ export type BillboardMinAggregateOutputType = {
   storeId: string | null
   label: string | null
   imageUrl: string | null
+  categoryId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -38,6 +39,7 @@ export type BillboardMaxAggregateOutputType = {
   storeId: string | null
   label: string | null
   imageUrl: string | null
+  categoryId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -47,6 +49,7 @@ export type BillboardCountAggregateOutputType = {
   storeId: number
   label: number
   imageUrl: number
+  categoryId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -58,6 +61,7 @@ export type BillboardMinAggregateInputType = {
   storeId?: true
   label?: true
   imageUrl?: true
+  categoryId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -67,6 +71,7 @@ export type BillboardMaxAggregateInputType = {
   storeId?: true
   label?: true
   imageUrl?: true
+  categoryId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -76,6 +81,7 @@ export type BillboardCountAggregateInputType = {
   storeId?: true
   label?: true
   imageUrl?: true
+  categoryId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -158,6 +164,7 @@ export type BillboardGroupByOutputType = {
   storeId: string
   label: string
   imageUrl: string
+  categoryId: string
   createdAt: Date
   updatedAt: Date
   _count: BillboardCountAggregateOutputType | null
@@ -188,10 +195,11 @@ export type BillboardWhereInput = {
   storeId?: Prisma.StringFilter<"Billboard"> | string
   label?: Prisma.StringFilter<"Billboard"> | string
   imageUrl?: Prisma.StringFilter<"Billboard"> | string
+  categoryId?: Prisma.StringFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
-  categories?: Prisma.CategoryListRelationFilter
+  category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
 }
 
 export type BillboardOrderByWithRelationInput = {
@@ -199,10 +207,11 @@ export type BillboardOrderByWithRelationInput = {
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   store?: Prisma.StoreOrderByWithRelationInput
-  categories?: Prisma.CategoryOrderByRelationAggregateInput
+  category?: Prisma.CategoryOrderByWithRelationInput
 }
 
 export type BillboardWhereUniqueInput = Prisma.AtLeast<{
@@ -213,10 +222,11 @@ export type BillboardWhereUniqueInput = Prisma.AtLeast<{
   storeId?: Prisma.StringFilter<"Billboard"> | string
   label?: Prisma.StringFilter<"Billboard"> | string
   imageUrl?: Prisma.StringFilter<"Billboard"> | string
+  categoryId?: Prisma.StringFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
-  categories?: Prisma.CategoryListRelationFilter
+  category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
 }, "id">
 
 export type BillboardOrderByWithAggregationInput = {
@@ -224,6 +234,7 @@ export type BillboardOrderByWithAggregationInput = {
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.BillboardCountOrderByAggregateInput
@@ -239,6 +250,7 @@ export type BillboardScalarWhereWithAggregatesInput = {
   storeId?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   label?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   imageUrl?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
+  categoryId?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Billboard"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Billboard"> | Date | string
 }
@@ -250,7 +262,7 @@ export type BillboardCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   store: Prisma.StoreCreateNestedOneWithoutBillboardsInput
-  categories?: Prisma.CategoryCreateNestedManyWithoutBillboardInput
+  category: Prisma.CategoryCreateNestedOneWithoutBillboardsInput
 }
 
 export type BillboardUncheckedCreateInput = {
@@ -258,9 +270,9 @@ export type BillboardUncheckedCreateInput = {
   storeId: string
   label: string
   imageUrl: string
+  categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutBillboardInput
 }
 
 export type BillboardUpdateInput = {
@@ -270,7 +282,7 @@ export type BillboardUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutBillboardsNestedInput
-  categories?: Prisma.CategoryUpdateManyWithoutBillboardNestedInput
+  category?: Prisma.CategoryUpdateOneRequiredWithoutBillboardsNestedInput
 }
 
 export type BillboardUncheckedUpdateInput = {
@@ -278,9 +290,9 @@ export type BillboardUncheckedUpdateInput = {
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  categories?: Prisma.CategoryUncheckedUpdateManyWithoutBillboardNestedInput
 }
 
 export type BillboardCreateManyInput = {
@@ -288,6 +300,7 @@ export type BillboardCreateManyInput = {
   storeId: string
   label: string
   imageUrl: string
+  categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -305,6 +318,7 @@ export type BillboardUncheckedUpdateManyInput = {
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -324,6 +338,7 @@ export type BillboardCountOrderByAggregateInput = {
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -333,6 +348,7 @@ export type BillboardMaxOrderByAggregateInput = {
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -342,13 +358,9 @@ export type BillboardMinOrderByAggregateInput = {
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type BillboardScalarRelationFilter = {
-  is?: Prisma.BillboardWhereInput
-  isNot?: Prisma.BillboardWhereInput
 }
 
 export type BillboardCreateNestedManyWithoutStoreInput = {
@@ -393,18 +405,46 @@ export type BillboardUncheckedUpdateManyWithoutStoreNestedInput = {
   deleteMany?: Prisma.BillboardScalarWhereInput | Prisma.BillboardScalarWhereInput[]
 }
 
-export type BillboardCreateNestedOneWithoutCategoriesInput = {
-  create?: Prisma.XOR<Prisma.BillboardCreateWithoutCategoriesInput, Prisma.BillboardUncheckedCreateWithoutCategoriesInput>
-  connectOrCreate?: Prisma.BillboardCreateOrConnectWithoutCategoriesInput
-  connect?: Prisma.BillboardWhereUniqueInput
+export type BillboardCreateNestedManyWithoutCategoryInput = {
+  create?: Prisma.XOR<Prisma.BillboardCreateWithoutCategoryInput, Prisma.BillboardUncheckedCreateWithoutCategoryInput> | Prisma.BillboardCreateWithoutCategoryInput[] | Prisma.BillboardUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.BillboardCreateOrConnectWithoutCategoryInput | Prisma.BillboardCreateOrConnectWithoutCategoryInput[]
+  createMany?: Prisma.BillboardCreateManyCategoryInputEnvelope
+  connect?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
 }
 
-export type BillboardUpdateOneRequiredWithoutCategoriesNestedInput = {
-  create?: Prisma.XOR<Prisma.BillboardCreateWithoutCategoriesInput, Prisma.BillboardUncheckedCreateWithoutCategoriesInput>
-  connectOrCreate?: Prisma.BillboardCreateOrConnectWithoutCategoriesInput
-  upsert?: Prisma.BillboardUpsertWithoutCategoriesInput
-  connect?: Prisma.BillboardWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.BillboardUpdateToOneWithWhereWithoutCategoriesInput, Prisma.BillboardUpdateWithoutCategoriesInput>, Prisma.BillboardUncheckedUpdateWithoutCategoriesInput>
+export type BillboardUncheckedCreateNestedManyWithoutCategoryInput = {
+  create?: Prisma.XOR<Prisma.BillboardCreateWithoutCategoryInput, Prisma.BillboardUncheckedCreateWithoutCategoryInput> | Prisma.BillboardCreateWithoutCategoryInput[] | Prisma.BillboardUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.BillboardCreateOrConnectWithoutCategoryInput | Prisma.BillboardCreateOrConnectWithoutCategoryInput[]
+  createMany?: Prisma.BillboardCreateManyCategoryInputEnvelope
+  connect?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+}
+
+export type BillboardUpdateManyWithoutCategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.BillboardCreateWithoutCategoryInput, Prisma.BillboardUncheckedCreateWithoutCategoryInput> | Prisma.BillboardCreateWithoutCategoryInput[] | Prisma.BillboardUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.BillboardCreateOrConnectWithoutCategoryInput | Prisma.BillboardCreateOrConnectWithoutCategoryInput[]
+  upsert?: Prisma.BillboardUpsertWithWhereUniqueWithoutCategoryInput | Prisma.BillboardUpsertWithWhereUniqueWithoutCategoryInput[]
+  createMany?: Prisma.BillboardCreateManyCategoryInputEnvelope
+  set?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  disconnect?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  delete?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  connect?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  update?: Prisma.BillboardUpdateWithWhereUniqueWithoutCategoryInput | Prisma.BillboardUpdateWithWhereUniqueWithoutCategoryInput[]
+  updateMany?: Prisma.BillboardUpdateManyWithWhereWithoutCategoryInput | Prisma.BillboardUpdateManyWithWhereWithoutCategoryInput[]
+  deleteMany?: Prisma.BillboardScalarWhereInput | Prisma.BillboardScalarWhereInput[]
+}
+
+export type BillboardUncheckedUpdateManyWithoutCategoryNestedInput = {
+  create?: Prisma.XOR<Prisma.BillboardCreateWithoutCategoryInput, Prisma.BillboardUncheckedCreateWithoutCategoryInput> | Prisma.BillboardCreateWithoutCategoryInput[] | Prisma.BillboardUncheckedCreateWithoutCategoryInput[]
+  connectOrCreate?: Prisma.BillboardCreateOrConnectWithoutCategoryInput | Prisma.BillboardCreateOrConnectWithoutCategoryInput[]
+  upsert?: Prisma.BillboardUpsertWithWhereUniqueWithoutCategoryInput | Prisma.BillboardUpsertWithWhereUniqueWithoutCategoryInput[]
+  createMany?: Prisma.BillboardCreateManyCategoryInputEnvelope
+  set?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  disconnect?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  delete?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  connect?: Prisma.BillboardWhereUniqueInput | Prisma.BillboardWhereUniqueInput[]
+  update?: Prisma.BillboardUpdateWithWhereUniqueWithoutCategoryInput | Prisma.BillboardUpdateWithWhereUniqueWithoutCategoryInput[]
+  updateMany?: Prisma.BillboardUpdateManyWithWhereWithoutCategoryInput | Prisma.BillboardUpdateManyWithWhereWithoutCategoryInput[]
+  deleteMany?: Prisma.BillboardScalarWhereInput | Prisma.BillboardScalarWhereInput[]
 }
 
 export type BillboardCreateWithoutStoreInput = {
@@ -413,16 +453,16 @@ export type BillboardCreateWithoutStoreInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  categories?: Prisma.CategoryCreateNestedManyWithoutBillboardInput
+  category: Prisma.CategoryCreateNestedOneWithoutBillboardsInput
 }
 
 export type BillboardUncheckedCreateWithoutStoreInput = {
   id?: string
   label: string
   imageUrl: string
+  categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutBillboardInput
 }
 
 export type BillboardCreateOrConnectWithoutStoreInput = {
@@ -459,11 +499,12 @@ export type BillboardScalarWhereInput = {
   storeId?: Prisma.StringFilter<"Billboard"> | string
   label?: Prisma.StringFilter<"Billboard"> | string
   imageUrl?: Prisma.StringFilter<"Billboard"> | string
+  categoryId?: Prisma.StringFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
 }
 
-export type BillboardCreateWithoutCategoriesInput = {
+export type BillboardCreateWithoutCategoryInput = {
   id?: string
   label: string
   imageUrl: string
@@ -472,7 +513,7 @@ export type BillboardCreateWithoutCategoriesInput = {
   store: Prisma.StoreCreateNestedOneWithoutBillboardsInput
 }
 
-export type BillboardUncheckedCreateWithoutCategoriesInput = {
+export type BillboardUncheckedCreateWithoutCategoryInput = {
   id?: string
   storeId: string
   label: string
@@ -481,44 +522,37 @@ export type BillboardUncheckedCreateWithoutCategoriesInput = {
   updatedAt?: Date | string
 }
 
-export type BillboardCreateOrConnectWithoutCategoriesInput = {
+export type BillboardCreateOrConnectWithoutCategoryInput = {
   where: Prisma.BillboardWhereUniqueInput
-  create: Prisma.XOR<Prisma.BillboardCreateWithoutCategoriesInput, Prisma.BillboardUncheckedCreateWithoutCategoriesInput>
+  create: Prisma.XOR<Prisma.BillboardCreateWithoutCategoryInput, Prisma.BillboardUncheckedCreateWithoutCategoryInput>
 }
 
-export type BillboardUpsertWithoutCategoriesInput = {
-  update: Prisma.XOR<Prisma.BillboardUpdateWithoutCategoriesInput, Prisma.BillboardUncheckedUpdateWithoutCategoriesInput>
-  create: Prisma.XOR<Prisma.BillboardCreateWithoutCategoriesInput, Prisma.BillboardUncheckedCreateWithoutCategoriesInput>
-  where?: Prisma.BillboardWhereInput
+export type BillboardCreateManyCategoryInputEnvelope = {
+  data: Prisma.BillboardCreateManyCategoryInput | Prisma.BillboardCreateManyCategoryInput[]
+  skipDuplicates?: boolean
 }
 
-export type BillboardUpdateToOneWithWhereWithoutCategoriesInput = {
-  where?: Prisma.BillboardWhereInput
-  data: Prisma.XOR<Prisma.BillboardUpdateWithoutCategoriesInput, Prisma.BillboardUncheckedUpdateWithoutCategoriesInput>
+export type BillboardUpsertWithWhereUniqueWithoutCategoryInput = {
+  where: Prisma.BillboardWhereUniqueInput
+  update: Prisma.XOR<Prisma.BillboardUpdateWithoutCategoryInput, Prisma.BillboardUncheckedUpdateWithoutCategoryInput>
+  create: Prisma.XOR<Prisma.BillboardCreateWithoutCategoryInput, Prisma.BillboardUncheckedCreateWithoutCategoryInput>
 }
 
-export type BillboardUpdateWithoutCategoriesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  label?: Prisma.StringFieldUpdateOperationsInput | string
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  store?: Prisma.StoreUpdateOneRequiredWithoutBillboardsNestedInput
+export type BillboardUpdateWithWhereUniqueWithoutCategoryInput = {
+  where: Prisma.BillboardWhereUniqueInput
+  data: Prisma.XOR<Prisma.BillboardUpdateWithoutCategoryInput, Prisma.BillboardUncheckedUpdateWithoutCategoryInput>
 }
 
-export type BillboardUncheckedUpdateWithoutCategoriesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  storeId?: Prisma.StringFieldUpdateOperationsInput | string
-  label?: Prisma.StringFieldUpdateOperationsInput | string
-  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type BillboardUpdateManyWithWhereWithoutCategoryInput = {
+  where: Prisma.BillboardScalarWhereInput
+  data: Prisma.XOR<Prisma.BillboardUpdateManyMutationInput, Prisma.BillboardUncheckedUpdateManyWithoutCategoryInput>
 }
 
 export type BillboardCreateManyStoreInput = {
   id?: string
   label: string
   imageUrl: string
+  categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -529,55 +563,63 @@ export type BillboardUpdateWithoutStoreInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  categories?: Prisma.CategoryUpdateManyWithoutBillboardNestedInput
+  category?: Prisma.CategoryUpdateOneRequiredWithoutBillboardsNestedInput
 }
 
 export type BillboardUncheckedUpdateWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  categories?: Prisma.CategoryUncheckedUpdateManyWithoutBillboardNestedInput
 }
 
 export type BillboardUncheckedUpdateManyWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-
-/**
- * Count Type BillboardCountOutputType
- */
-
-export type BillboardCountOutputType = {
-  categories: number
+export type BillboardCreateManyCategoryInput = {
+  id?: string
+  storeId: string
+  label: string
+  imageUrl: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type BillboardCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  categories?: boolean | BillboardCountOutputTypeCountCategoriesArgs
+export type BillboardUpdateWithoutCategoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  label?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  store?: Prisma.StoreUpdateOneRequiredWithoutBillboardsNestedInput
 }
 
-/**
- * BillboardCountOutputType without action
- */
-export type BillboardCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the BillboardCountOutputType
-   */
-  select?: Prisma.BillboardCountOutputTypeSelect<ExtArgs> | null
+export type BillboardUncheckedUpdateWithoutCategoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  storeId?: Prisma.StringFieldUpdateOperationsInput | string
+  label?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-/**
- * BillboardCountOutputType without action
- */
-export type BillboardCountOutputTypeCountCategoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CategoryWhereInput
+export type BillboardUncheckedUpdateManyWithoutCategoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  storeId?: Prisma.StringFieldUpdateOperationsInput | string
+  label?: Prisma.StringFieldUpdateOperationsInput | string
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
+
 
 
 export type BillboardSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -585,11 +627,11 @@ export type BillboardSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   storeId?: boolean
   label?: boolean
   imageUrl?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
-  categories?: boolean | Prisma.Billboard$categoriesArgs<ExtArgs>
-  _count?: boolean | Prisma.BillboardCountOutputTypeDefaultArgs<ExtArgs>
+  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["billboard"]>
 
 export type BillboardSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -597,9 +639,11 @@ export type BillboardSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   storeId?: boolean
   label?: boolean
   imageUrl?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
+  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["billboard"]>
 
 export type BillboardSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -607,9 +651,11 @@ export type BillboardSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   storeId?: boolean
   label?: boolean
   imageUrl?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
+  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["billboard"]>
 
 export type BillboardSelectScalar = {
@@ -617,34 +663,37 @@ export type BillboardSelectScalar = {
   storeId?: boolean
   label?: boolean
   imageUrl?: boolean
+  categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type BillboardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "label" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["billboard"]>
+export type BillboardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "label" | "imageUrl" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["billboard"]>
 export type BillboardInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
-  categories?: boolean | Prisma.Billboard$categoriesArgs<ExtArgs>
-  _count?: boolean | Prisma.BillboardCountOutputTypeDefaultArgs<ExtArgs>
+  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
 }
 export type BillboardIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
+  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
 }
 export type BillboardIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
+  category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
 }
 
 export type $BillboardPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Billboard"
   objects: {
     store: Prisma.$StorePayload<ExtArgs>
-    categories: Prisma.$CategoryPayload<ExtArgs>[]
+    category: Prisma.$CategoryPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     storeId: string
     label: string
     imageUrl: string
+    categoryId: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["billboard"]>
@@ -1042,7 +1091,7 @@ readonly fields: BillboardFieldRefs;
 export interface Prisma__BillboardClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   store<T extends Prisma.StoreDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StoreDefaultArgs<ExtArgs>>): Prisma.Prisma__StoreClient<runtime.Types.Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  categories<T extends Prisma.Billboard$categoriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Billboard$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  category<T extends Prisma.CategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__CategoryClient<runtime.Types.Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1076,6 +1125,7 @@ export interface BillboardFieldRefs {
   readonly storeId: Prisma.FieldRef<"Billboard", 'String'>
   readonly label: Prisma.FieldRef<"Billboard", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Billboard", 'String'>
+  readonly categoryId: Prisma.FieldRef<"Billboard", 'String'>
   readonly createdAt: Prisma.FieldRef<"Billboard", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Billboard", 'DateTime'>
 }
@@ -1471,30 +1521,6 @@ export type BillboardDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Limit how many Billboards to delete.
    */
   limit?: number
-}
-
-/**
- * Billboard.categories
- */
-export type Billboard$categoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Category
-   */
-  select?: Prisma.CategorySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Category
-   */
-  omit?: Prisma.CategoryOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.CategoryInclude<ExtArgs> | null
-  where?: Prisma.CategoryWhereInput
-  orderBy?: Prisma.CategoryOrderByWithRelationInput | Prisma.CategoryOrderByWithRelationInput[]
-  cursor?: Prisma.CategoryWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.CategoryScalarFieldEnum | Prisma.CategoryScalarFieldEnum[]
 }
 
 /**

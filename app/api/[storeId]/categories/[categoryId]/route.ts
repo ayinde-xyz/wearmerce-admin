@@ -9,7 +9,7 @@ export async function GET(
     params,
   }: {
     params: Promise<{ categoryId: string }>;
-  }
+  },
 ) {
   try {
     const { categoryId } = await params;
@@ -19,9 +19,6 @@ export async function GET(
 
     const category = await prismadb.category.findUnique({
       where: { id: categoryId },
-      include: {
-        billboard: true,
-      },
     });
 
     return NextResponse.json(category);
@@ -37,7 +34,7 @@ export async function PATCH(
     params,
   }: {
     params: Promise<{ storeId: string; categoryId: string }>;
-  }
+  },
 ) {
   try {
     const { storeId, categoryId } = await params;
@@ -80,7 +77,6 @@ export async function PATCH(
       },
       data: {
         name,
-        billboardId,
       },
     });
     return NextResponse.json(category);
@@ -96,7 +92,7 @@ export async function DELETE(
     params,
   }: {
     params: Promise<{ storeId: string; categoryId: string }>;
-  }
+  },
 ) {
   try {
     const { categoryId, storeId } = await params;

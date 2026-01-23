@@ -15,7 +15,7 @@ import ImageUpload from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Billboard } from "@/app/generated/prisma/client";
+import { Billboard, Category } from "@/app/generated/prisma/client";
 import axios from "axios";
 import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
@@ -23,19 +23,29 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const formSchema = z.object({
   label: z.string().min(1),
   imageUrl: z.string().min(1),
+  categoryId: z.string().min(1),
 });
 type BillboardFormValues = z.infer<typeof formSchema>;
 
 interface BillboardFormProps {
   initialData: Billboard | null;
+  categories: Category[];
 }
 
 export const BillboardForm: React.FC<BillboardFormProps> = ({
   initialData,
+  categories,
 }) => {
   const params = useParams();
   const router = useRouter();
@@ -52,6 +62,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     defaultValues: initialData || {
       label: "",
       imageUrl: "",
+      categoryId: "",
     },
   });
 
@@ -140,7 +151,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
               </FormItem>
             )}
           />
-          <div className="w-75]">
+          <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
             <FormField
               control={form.control}
               name="label"
@@ -155,6 +166,37 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                       {...field}
                     />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="categoryId"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Category</FormLabel>
+                  <Select
+                    disabled={loading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select a Category"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {categories.map((category) => (
+                        <SelectItem key={category.id} value={category.id}>
+                          {category.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

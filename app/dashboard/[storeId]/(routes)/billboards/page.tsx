@@ -3,16 +3,22 @@ import BillboardClient from "./components/client";
 import { BillboardColumn } from "./components/columns";
 import { format } from "date-fns";
 
-const BillboardsPage = async ({ params }: { params: Promise<{ storeId: string }> }) => {
+const BillboardsPage = async ({
+  params,
+}: {
+  params: Promise<{ storeId: string }>;
+}) => {
   const { storeId } = await params;
   const billboards = await prismadb.billboard.findMany({
     where: { storeId: storeId },
+    include: { category: true },
     orderBy: { createdAt: "desc" },
   });
 
   const formattedBillboards: BillboardColumn[] = billboards.map((item) => ({
     id: item.id,
     label: item.label,
+    categoryLabel: item.category.name,
     createdAt: format(item.createdAt, "MMMM do, yyyy"),
   }));
   return (

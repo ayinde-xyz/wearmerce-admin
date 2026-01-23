@@ -9,7 +9,7 @@ export async function GET(
     params,
   }: {
     params: Promise<{ billboardId: string }>;
-  }
+  },
 ) {
   try {
     const { billboardId } = await params;
@@ -20,6 +20,9 @@ export async function GET(
 
     const billboard = await prismadb.billboard.findUnique({
       where: { id: billboardId },
+      include: {
+        category: true,
+      },
     });
 
     return NextResponse.json(billboard);
@@ -35,7 +38,7 @@ export async function PATCH(
     params,
   }: {
     params: Promise<{ storeId: string; billboardId: string }>;
-  }
+  },
 ) {
   try {
     const { storeId, billboardId } = await params;
@@ -46,7 +49,7 @@ export async function PATCH(
     const userId = session?.user.id;
 
     const body = await req.json();
-    const { label, imageUrl } = body;
+    const { label, imageUrl, categoryId } = body;
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -72,9 +75,9 @@ export async function PATCH(
       return new NextResponse("Unauthorized", { status: 403 });
     }
 
-    const billboard = await prismadb.billboard.updateMany({
+    const billboard = await prismadb.billboard.update({
       where: { id: billboardId },
-      data: { label, imageUrl },
+      data: { label, imageUrl, categoryId },
     });
 
     return NextResponse.json(billboard);
@@ -90,7 +93,7 @@ export async function DELETE(
     params,
   }: {
     params: Promise<{ storeId: string; billboardId: string }>;
-  }
+  },
 ) {
   try {
     const { storeId, billboardId } = await params;

@@ -9,12 +9,18 @@ export type BillboardColumn = {
   id: string;
   label: string;
   createdAt: string;
+  categoryLabel: string;
 };
 
 export const columns: ColumnDef<BillboardColumn>[] = [
   {
     accessorKey: "label",
     header: "Label",
+  },
+  {
+    accessorKey: "Category",
+    header: "Category",
+    cell: ({ row }) => row.original.categoryLabel,
   },
   {
     accessorKey: "createdAt",

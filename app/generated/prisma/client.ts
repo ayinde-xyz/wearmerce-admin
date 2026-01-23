@@ -45,15 +45,15 @@ export { Prisma }
  */
 export type Store = Prisma.StoreModel
 /**
- * Model Billboard
- * 
- */
-export type Billboard = Prisma.BillboardModel
-/**
  * Model Category
  * 
  */
 export type Category = Prisma.CategoryModel
+/**
+ * Model Billboard
+ * 
+ */
+export type Billboard = Prisma.BillboardModel
 /**
  * Model Size
  * 

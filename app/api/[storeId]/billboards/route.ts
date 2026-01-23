@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   try {
     const { storeId } = await params;
@@ -16,7 +16,7 @@ export async function POST(
     const userId = session?.user.id;
     const body = await req.json();
 
-    const { label, imageUrl } = body;
+    const { label, imageUrl, categoryId } = body;
 
     if (!userId) {
       return new NextResponse("Unauthenticated", { status: 401 });
@@ -27,6 +27,9 @@ export async function POST(
     }
     if (!imageUrl) {
       return new NextResponse("Image URL is required", { status: 400 });
+    }
+    if (!categoryId) {
+      return new NextResponse("Category ID is required", { status: 400 });
     }
     if (!storeId) {
       return new NextResponse("Store ID is required", { status: 400 });
@@ -47,6 +50,7 @@ export async function POST(
       data: {
         label,
         imageUrl,
+        categoryId,
         storeId: storeId,
       },
     });
@@ -60,7 +64,7 @@ export async function POST(
 
 export async function GET(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   try {
     const { storeId } = await params;
