@@ -1,7 +1,7 @@
 import prismadb from "@/lib/prismadb";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(
   req: Request,
@@ -71,11 +71,18 @@ export async function POST(
 }
 
 export async function GET(
-  req: Request,
-  { params }: { params: Promise<{ storeId: string }> },
+  req: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{ storeId: string }>;
+  },
 ) {
   try {
     const { storeId } = await params;
+    const searchParams = req.nextUrl.searchParams;
+    const categoryId = searchParams.get("categoryId");
+
     if (!storeId) {
       return new NextResponse("Store ID is required", { status: 400 });
     }
@@ -83,6 +90,7 @@ export async function GET(
     const billboards = await prismadb.billboard.findMany({
       where: {
         storeId: storeId,
+        ...(categoryId && { categoryId: categoryId }),
       },
     });
 
