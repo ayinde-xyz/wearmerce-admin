@@ -22,6 +22,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 
   const onUpload = (result: any) => {
     onChange(result.info.secure_url);
+    console.log(result);
   };
 
   // Render immediately on the client
@@ -46,7 +47,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           </div>
         ))}
       </div>
-      <CldUploadWidget onSuccess={onUpload} uploadPreset="flgnr4iy">
+      <CldUploadWidget
+        onSuccess={onUpload}
+        options={{ resourceType: "auto" }}
+        uploadPreset="flgnr4iy">
         {({ open }) => {
           const onClick = () => {
             open();

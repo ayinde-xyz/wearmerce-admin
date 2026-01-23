@@ -1518,6 +1518,8 @@ export const BillboardScalarFieldEnum = {
   id: 'id',
   storeId: 'storeId',
   label: 'label',
+  caption: 'caption',
+  size: 'size',
   imageUrl: 'imageUrl',
   categoryId: 'categoryId',
   createdAt: 'createdAt',
@@ -1735,6 +1737,20 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BillboardSize'
+ */
+export type EnumBillboardSizeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillboardSize'>
+    
+
+
+/**
+ * Reference to a field of type 'BillboardSize[]'
+ */
+export type ListEnumBillboardSizeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillboardSize[]'>
     
 
 

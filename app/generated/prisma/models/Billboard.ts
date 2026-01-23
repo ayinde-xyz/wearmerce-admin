@@ -28,6 +28,8 @@ export type BillboardMinAggregateOutputType = {
   id: string | null
   storeId: string | null
   label: string | null
+  caption: string | null
+  size: $Enums.BillboardSize | null
   imageUrl: string | null
   categoryId: string | null
   createdAt: Date | null
@@ -38,6 +40,8 @@ export type BillboardMaxAggregateOutputType = {
   id: string | null
   storeId: string | null
   label: string | null
+  caption: string | null
+  size: $Enums.BillboardSize | null
   imageUrl: string | null
   categoryId: string | null
   createdAt: Date | null
@@ -48,6 +52,8 @@ export type BillboardCountAggregateOutputType = {
   id: number
   storeId: number
   label: number
+  caption: number
+  size: number
   imageUrl: number
   categoryId: number
   createdAt: number
@@ -60,6 +66,8 @@ export type BillboardMinAggregateInputType = {
   id?: true
   storeId?: true
   label?: true
+  caption?: true
+  size?: true
   imageUrl?: true
   categoryId?: true
   createdAt?: true
@@ -70,6 +78,8 @@ export type BillboardMaxAggregateInputType = {
   id?: true
   storeId?: true
   label?: true
+  caption?: true
+  size?: true
   imageUrl?: true
   categoryId?: true
   createdAt?: true
@@ -80,6 +90,8 @@ export type BillboardCountAggregateInputType = {
   id?: true
   storeId?: true
   label?: true
+  caption?: true
+  size?: true
   imageUrl?: true
   categoryId?: true
   createdAt?: true
@@ -163,6 +175,8 @@ export type BillboardGroupByOutputType = {
   id: string
   storeId: string
   label: string
+  caption: string
+  size: $Enums.BillboardSize
   imageUrl: string
   categoryId: string
   createdAt: Date
@@ -194,6 +208,8 @@ export type BillboardWhereInput = {
   id?: Prisma.StringFilter<"Billboard"> | string
   storeId?: Prisma.StringFilter<"Billboard"> | string
   label?: Prisma.StringFilter<"Billboard"> | string
+  caption?: Prisma.StringFilter<"Billboard"> | string
+  size?: Prisma.EnumBillboardSizeFilter<"Billboard"> | $Enums.BillboardSize
   imageUrl?: Prisma.StringFilter<"Billboard"> | string
   categoryId?: Prisma.StringFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
@@ -206,6 +222,8 @@ export type BillboardOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
+  caption?: Prisma.SortOrder
+  size?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -221,6 +239,8 @@ export type BillboardWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.BillboardWhereInput | Prisma.BillboardWhereInput[]
   storeId?: Prisma.StringFilter<"Billboard"> | string
   label?: Prisma.StringFilter<"Billboard"> | string
+  caption?: Prisma.StringFilter<"Billboard"> | string
+  size?: Prisma.EnumBillboardSizeFilter<"Billboard"> | $Enums.BillboardSize
   imageUrl?: Prisma.StringFilter<"Billboard"> | string
   categoryId?: Prisma.StringFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
@@ -233,6 +253,8 @@ export type BillboardOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
+  caption?: Prisma.SortOrder
+  size?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -249,6 +271,8 @@ export type BillboardScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   storeId?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   label?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
+  caption?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
+  size?: Prisma.EnumBillboardSizeWithAggregatesFilter<"Billboard"> | $Enums.BillboardSize
   imageUrl?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   categoryId?: Prisma.StringWithAggregatesFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Billboard"> | Date | string
@@ -258,6 +282,8 @@ export type BillboardScalarWhereWithAggregatesInput = {
 export type BillboardCreateInput = {
   id?: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -269,6 +295,8 @@ export type BillboardUncheckedCreateInput = {
   id?: string
   storeId: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   categoryId: string
   createdAt?: Date | string
@@ -278,6 +306,8 @@ export type BillboardUncheckedCreateInput = {
 export type BillboardUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -289,6 +319,8 @@ export type BillboardUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -299,6 +331,8 @@ export type BillboardCreateManyInput = {
   id?: string
   storeId: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   categoryId: string
   createdAt?: Date | string
@@ -308,6 +342,8 @@ export type BillboardCreateManyInput = {
 export type BillboardUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -317,6 +353,8 @@ export type BillboardUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -337,6 +375,8 @@ export type BillboardCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
+  caption?: Prisma.SortOrder
+  size?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -347,6 +387,8 @@ export type BillboardMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
+  caption?: Prisma.SortOrder
+  size?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -357,6 +399,8 @@ export type BillboardMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   label?: Prisma.SortOrder
+  caption?: Prisma.SortOrder
+  size?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -447,9 +491,15 @@ export type BillboardUncheckedUpdateManyWithoutCategoryNestedInput = {
   deleteMany?: Prisma.BillboardScalarWhereInput | Prisma.BillboardScalarWhereInput[]
 }
 
+export type EnumBillboardSizeFieldUpdateOperationsInput = {
+  set?: $Enums.BillboardSize
+}
+
 export type BillboardCreateWithoutStoreInput = {
   id?: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -459,6 +509,8 @@ export type BillboardCreateWithoutStoreInput = {
 export type BillboardUncheckedCreateWithoutStoreInput = {
   id?: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   categoryId: string
   createdAt?: Date | string
@@ -498,6 +550,8 @@ export type BillboardScalarWhereInput = {
   id?: Prisma.StringFilter<"Billboard"> | string
   storeId?: Prisma.StringFilter<"Billboard"> | string
   label?: Prisma.StringFilter<"Billboard"> | string
+  caption?: Prisma.StringFilter<"Billboard"> | string
+  size?: Prisma.EnumBillboardSizeFilter<"Billboard"> | $Enums.BillboardSize
   imageUrl?: Prisma.StringFilter<"Billboard"> | string
   categoryId?: Prisma.StringFilter<"Billboard"> | string
   createdAt?: Prisma.DateTimeFilter<"Billboard"> | Date | string
@@ -507,6 +561,8 @@ export type BillboardScalarWhereInput = {
 export type BillboardCreateWithoutCategoryInput = {
   id?: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -517,6 +573,8 @@ export type BillboardUncheckedCreateWithoutCategoryInput = {
   id?: string
   storeId: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -551,6 +609,8 @@ export type BillboardUpdateManyWithWhereWithoutCategoryInput = {
 export type BillboardCreateManyStoreInput = {
   id?: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   categoryId: string
   createdAt?: Date | string
@@ -560,6 +620,8 @@ export type BillboardCreateManyStoreInput = {
 export type BillboardUpdateWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -569,6 +631,8 @@ export type BillboardUpdateWithoutStoreInput = {
 export type BillboardUncheckedUpdateWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -578,6 +642,8 @@ export type BillboardUncheckedUpdateWithoutStoreInput = {
 export type BillboardUncheckedUpdateManyWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -588,6 +654,8 @@ export type BillboardCreateManyCategoryInput = {
   id?: string
   storeId: string
   label: string
+  caption: string
+  size?: $Enums.BillboardSize
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -596,6 +664,8 @@ export type BillboardCreateManyCategoryInput = {
 export type BillboardUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -606,6 +676,8 @@ export type BillboardUncheckedUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -615,6 +687,8 @@ export type BillboardUncheckedUpdateManyWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   label?: Prisma.StringFieldUpdateOperationsInput | string
+  caption?: Prisma.StringFieldUpdateOperationsInput | string
+  size?: Prisma.EnumBillboardSizeFieldUpdateOperationsInput | $Enums.BillboardSize
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -626,6 +700,8 @@ export type BillboardSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   id?: boolean
   storeId?: boolean
   label?: boolean
+  caption?: boolean
+  size?: boolean
   imageUrl?: boolean
   categoryId?: boolean
   createdAt?: boolean
@@ -638,6 +714,8 @@ export type BillboardSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   id?: boolean
   storeId?: boolean
   label?: boolean
+  caption?: boolean
+  size?: boolean
   imageUrl?: boolean
   categoryId?: boolean
   createdAt?: boolean
@@ -650,6 +728,8 @@ export type BillboardSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   id?: boolean
   storeId?: boolean
   label?: boolean
+  caption?: boolean
+  size?: boolean
   imageUrl?: boolean
   categoryId?: boolean
   createdAt?: boolean
@@ -662,13 +742,15 @@ export type BillboardSelectScalar = {
   id?: boolean
   storeId?: boolean
   label?: boolean
+  caption?: boolean
+  size?: boolean
   imageUrl?: boolean
   categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type BillboardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "label" | "imageUrl" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["billboard"]>
+export type BillboardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "label" | "caption" | "size" | "imageUrl" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["billboard"]>
 export type BillboardInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
@@ -692,6 +774,8 @@ export type $BillboardPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     id: string
     storeId: string
     label: string
+    caption: string
+    size: $Enums.BillboardSize
     imageUrl: string
     categoryId: string
     createdAt: Date
@@ -1124,6 +1208,8 @@ export interface BillboardFieldRefs {
   readonly id: Prisma.FieldRef<"Billboard", 'String'>
   readonly storeId: Prisma.FieldRef<"Billboard", 'String'>
   readonly label: Prisma.FieldRef<"Billboard", 'String'>
+  readonly caption: Prisma.FieldRef<"Billboard", 'String'>
+  readonly size: Prisma.FieldRef<"Billboard", 'BillboardSize'>
   readonly imageUrl: Prisma.FieldRef<"Billboard", 'String'>
   readonly categoryId: Prisma.FieldRef<"Billboard", 'String'>
   readonly createdAt: Prisma.FieldRef<"Billboard", 'DateTime'>

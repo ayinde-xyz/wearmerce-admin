@@ -72,6 +72,23 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
+export type EnumBillboardSizeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillboardSize | Prisma.EnumBillboardSizeFieldRefInput<$PrismaModel>
+  in?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillboardSizeFilter<$PrismaModel> | $Enums.BillboardSize
+}
+
+export type EnumBillboardSizeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillboardSize | Prisma.EnumBillboardSizeFieldRefInput<$PrismaModel>
+  in?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillboardSizeWithAggregatesFilter<$PrismaModel> | $Enums.BillboardSize
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBillboardSizeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBillboardSizeFilter<$PrismaModel>
+}
+
 export type DecimalFilter<$PrismaModel = never> = {
   equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
   in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
@@ -280,6 +297,23 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
+export type NestedEnumBillboardSizeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillboardSize | Prisma.EnumBillboardSizeFieldRefInput<$PrismaModel>
+  in?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillboardSizeFilter<$PrismaModel> | $Enums.BillboardSize
+}
+
+export type NestedEnumBillboardSizeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BillboardSize | Prisma.EnumBillboardSizeFieldRefInput<$PrismaModel>
+  in?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BillboardSize[] | Prisma.ListEnumBillboardSizeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBillboardSizeWithAggregatesFilter<$PrismaModel> | $Enums.BillboardSize
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBillboardSizeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBillboardSizeFilter<$PrismaModel>
 }
 
 export type NestedDecimalFilter<$PrismaModel = never> = {

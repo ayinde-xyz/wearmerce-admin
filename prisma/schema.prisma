@@ -40,12 +40,20 @@ model Category {
   
 }
 
+enum BillboardSize {
+  Landscape
+  Portrait
+  Square
+}
+
 
 model Billboard {
   id         String     @id @default(uuid())
   storeId    String
   store      Store      @relation("StoreToBillboard", fields: [storeId], references: [id])
   label      String
+  caption   String
+  size    BillboardSize   @default(Landscape)
   imageUrl   String
   categoryId String
   category  Category  @relation("CategoryToBillboard",fields: [categoryId], references: [id])

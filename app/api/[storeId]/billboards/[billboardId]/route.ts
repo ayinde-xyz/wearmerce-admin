@@ -49,7 +49,7 @@ export async function PATCH(
     const userId = session?.user.id;
 
     const body = await req.json();
-    const { label, imageUrl, categoryId } = body;
+    const { label, imageUrl, categoryId, size, caption } = body;
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -58,6 +58,12 @@ export async function PATCH(
       return new NextResponse("Label is required", { status: 400 });
     }
     if (!imageUrl) {
+      return new NextResponse("Image URL is required", { status: 400 });
+    }
+    if (!size) {
+      return new NextResponse("Image URL is required", { status: 400 });
+    }
+    if (!caption) {
       return new NextResponse("Image URL is required", { status: 400 });
     }
     if (!billboardId) {
@@ -77,7 +83,7 @@ export async function PATCH(
 
     const billboard = await prismadb.billboard.update({
       where: { id: billboardId },
-      data: { label, imageUrl, categoryId },
+      data: { label, imageUrl, categoryId, size, caption },
     });
 
     return NextResponse.json(billboard);

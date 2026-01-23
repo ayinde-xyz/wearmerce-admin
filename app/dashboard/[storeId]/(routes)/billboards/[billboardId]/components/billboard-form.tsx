@@ -35,6 +35,8 @@ const formSchema = z.object({
   label: z.string().min(1),
   imageUrl: z.string().min(1),
   categoryId: z.string().min(1),
+  caption: z.string().min(1),
+  size: z.enum(["Landscape", "Portrait", "Square"]),
 });
 type BillboardFormValues = z.infer<typeof formSchema>;
 
@@ -61,6 +63,8 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
       label: "",
+      caption: "",
+      size: "Landscape",
       imageUrl: "",
       categoryId: "",
     },
@@ -166,6 +170,53 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                       {...field}
                     />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="caption"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Caption</FormLabel>
+                  <FormControl>
+                    <Input
+                      className=""
+                      disabled={loading}
+                      placeholder="Billboard Caption"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="size"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Size</FormLabel>
+                  <Select
+                    disabled={loading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select a Size"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Landscape">Landscape</SelectItem>
+                      <SelectItem value="Portrait">Portrait</SelectItem>
+                      <SelectItem value="Square">Square</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

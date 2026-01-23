@@ -109,6 +109,8 @@ export const BillboardScalarFieldEnum = {
   id: 'id',
   storeId: 'storeId',
   label: 'label',
+  caption: 'caption',
+  size: 'size',
   imageUrl: 'imageUrl',
   categoryId: 'categoryId',
   createdAt: 'createdAt',

@@ -9,7 +9,10 @@
 * 🟢 You can import this file directly.
 */
 
+export const BillboardSize = {
+  Landscape: 'Landscape',
+  Portrait: 'Portrait',
+  Square: 'Square'
+} as const
 
-
-// This file is empty because there are no enums in the schema.
-export {}
+export type BillboardSize = (typeof BillboardSize)[keyof typeof BillboardSize]
