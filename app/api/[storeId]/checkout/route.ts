@@ -15,7 +15,7 @@ export async function OPTIONS() {
 
 export async function POST(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   const { storeId } = await params;
   const { productsOrdered } = await req.json();
@@ -26,10 +26,10 @@ export async function POST(
 
   console.log("checkoutInfo", productsOrdered);
   const productIds = productsOrdered.map(
-    (product: { id: string }) => product.id
+    (product: { id: string }) => product.id,
   );
   const productQuantities = productsOrdered.map(
-    (product: { quantity: number }) => product.quantity
+    (product: { quantity: number }) => product.quantity,
   );
 
   console.log("productIds", productIds);
@@ -46,7 +46,7 @@ export async function POST(
     },
   });
 
-  const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
+  const line_items: Stripe.Checkout.SessionCreateParams["line_items"] = [];
 
   products.forEach((product) => {
     line_items.push({
@@ -98,6 +98,6 @@ export async function POST(
     {
       url: session.url,
     },
-    { headers: corsHeaders }
+    { headers: corsHeaders },
   );
 }

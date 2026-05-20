@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Comfortaa,} from "next/font/google";
+import { Comfortaa } from "next/font/google";
 import { ModalProvider } from "@/providers/modal-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
@@ -52,3 +52,34 @@ export default async function RootLayout({
 // ↑ stripe 14.25.0 → 17.4.0
 // ↑ tailwind-merge 1.14.0 → 2.5.5
 // ↑ zustand 4.5.5 → 5.0.2
+
+// ↑ @tailwindcss/postcss 4.1.18 → 4.3.0
+// ↑ @tailwindcss/upgrade 4.1.18 → 4.3.0
+// ↑ @types/bun 1.3.4 → 1.3.14
+// ↑ @types/node 24.10.1 → 25.9.1
+// ↑ @types/nodemailer 7.0.4 → 8.0.0
+// ↑ @types/pg 8.16.0 → 8.20.0
+// ↑ eslint 9.39.1 → 10.4.0
+// ↑ eslint-config-next 16.0.3 → 16.2.6
+// ↑ postcss 8.5.6 → 8.5.15
+// ↑ prisma 7.1.0 → 7.8.0
+// ↑ tailwindcss 4.1.18 → 4.3.0
+// ↑ typescript 5.9.3 → 6.0.3
+// ↑ @prisma/adapter-pg 7.1.0 → 7.8.0
+// ↑ @prisma/client 7.1.0 → 7.8.0
+// ↑ axios 1.13.2 → 1.16.1
+// ↑ better-auth 1.4.9 → 1.6.11
+// ↑ date-fns 4.1.0 → 4.2.1
+// ↑ dotenv 17.2.3 → 17.4.2
+// ↑ lucide-react 0.562.0 → 1.16.0
+// ↑ next 16.0.10 → 16.2.6
+// ↑ nodemailer 7.0.11 → 8.0.7
+// ↑ react 19.2.0 → 19.2.6
+// ↑ react-dom 19.2.0 → 19.2.6
+// ↑ react-hook-form 7.68.0 → 7.76.0
+// ↑ react-icons 5.5.0 → 5.6.0
+// ↑ recharts 3.5.1 → 3.8.1
+// ↑ stripe 20.1.0 → 22.1.1
+// ↑ tailwind-merge 3.4.0 → 3.6.0
+// ↑ zod 4.2.1 → 4.4.3
+// ↑ zustand 5.0.9 → 5.0.13
