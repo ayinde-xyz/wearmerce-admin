@@ -165,7 +165,7 @@ export type SizeGroupByOutputType = {
   _max: SizeMaxAggregateOutputType | null
 }
 
-type GetSizeGroupByPayload<T extends SizeGroupByArgs> = Prisma.PrismaPromise<
+export type GetSizeGroupByPayload<T extends SizeGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SizeGroupByOutputType, T['by']> &
       {
@@ -1274,6 +1274,11 @@ export type SizeFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Skip the first `n` Sizes.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Sizes.
+   */
   distinct?: Prisma.SizeScalarFieldEnum | Prisma.SizeScalarFieldEnum[]
 }
 

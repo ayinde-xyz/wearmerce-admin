@@ -186,7 +186,7 @@ export type BillboardGroupByOutputType = {
   _max: BillboardMaxAggregateOutputType | null
 }
 
-type GetBillboardGroupByPayload<T extends BillboardGroupByArgs> = Prisma.PrismaPromise<
+export type GetBillboardGroupByPayload<T extends BillboardGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<BillboardGroupByOutputType, T['by']> &
       {
@@ -1410,6 +1410,11 @@ export type BillboardFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Skip the first `n` Billboards.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of Billboards.
+   */
   distinct?: Prisma.BillboardScalarFieldEnum | Prisma.BillboardScalarFieldEnum[]
 }
 
