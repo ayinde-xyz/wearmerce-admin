@@ -57,15 +57,7 @@ export const Overview: React.FC<OverviewProps> = ({ data }) => {
         />
         {/* <Legend /> */}
         <ChartTooltip
-          content={
-            <ChartTooltipContent
-              active={false}
-              payload={[]}
-              coordinate={undefined}
-              accessibilityLayer={false}
-              activeIndex={undefined}
-            />
-          }
+          content={<ChartTooltipContent active={false} payload={[]} />}
         />
         <Bar dataKey="total" fill="var(--color-total)" radius={[4, 4, 0, 0]} />
       </BarChart>
