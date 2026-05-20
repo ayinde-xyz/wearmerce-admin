@@ -116,7 +116,7 @@ export const auth = betterAuth({
     },
     trustedOrigins: [
       "http://localhost:3000",
-      "https://wearmerce-admin.vercel.app,
+      "https://wearmerce-admin.vercel.app",
     ],
   },
 });
