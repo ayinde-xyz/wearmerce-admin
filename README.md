@@ -1,109 +1,159 @@
-<div align="center">
-  <img src="https://media.giphy.com/media/qgQUggAC3PfvY8nz96/giphy.gif" width="100" />
-  <h1>Hi there, I'm Ayinde Abdulrahman! <img src="https://raw.githubusercontent.com/Martin Heinz/MartinHeinz/master/wave.gif" width="30px"></h1>
-  
-  <h3>Full Stack Engineer (Next.js & TypeScript) | AI & Machine Learning Enthusiast</h3>
+# Wearmerce Admin Dashboard
 
-  <p>
-    I build scalable, type-safe web applications and integrate intelligent predictive models into modern UIs.
-    <br/>
-    Bridging the gap between <b>Software Engineering</b> and <b>Data Science</b>.
-  </p>
+A comprehensive, full-stack Admin Dashboard for managing e-commerce stores, built with Next.js, React, Prisma, PostgreSQL, and Tailwind CSS.
 
-<a href="ayindeabdulrahman.vercel.app"><strong>Explore my Portfolio »</strong></a>
-<br />
-<br />
+## 🌟 Features In-Depth
 
-  <!-- SOCIAL LINKS -->
-  <a href="https://www.linkedin.com/in/abdurrahman-ayinde-b918b5237/">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
-  <a href="https://twitter.com/[your-twitter]">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
-  </a>
-  <a href="mailto:ayindeabdulrahman16@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-</div>
+This project comes packed with modern features and tools to provide a seamless administrative experience:
 
-<hr />
+- **Next.js App Router**: Utilizing the latest Next.js features for server-side rendering, routing, and optimized performance.
+- **Authentication**: Secure and robust authentication implemented with **Better Auth** (supporting Google, Facebook, and Email/Password). _(Note: Clerk variables are also included for alternative/legacy setups)._
+- **Database Management**: Built on top of **PostgreSQL** (compatible with Supabase) and managed via **Prisma ORM** for fully type-safe database access and migrations.
+- **Payment & Checkout**: Deep integration with **Stripe** to handle webhooks, transactions, and secure payments.
+- **Image & Media Uploads**: Integrated with **Cloudinary** for scalable image hosting and management.
+- **Modern User Interface**:
+  - Styled with **Tailwind CSS**.
+  - Accessible, customizable components using **Radix UI** and **Shadcn UI** patterns.
+  - Complex data tables for managing products, categories, and orders using **TanStack React Table**.
+  - Interactive analytics and charts via **Recharts**.
+  - Beautiful toast notifications using **Sonner**.
+- **Forms & Validation**: Form state and submission handled by **React Hook Form**, with strict schema validation using **Zod**.
+- **State Management**: Global application state handled efficiently by **Zustand**.
+- **Email Notifications**: Built-in support for sending emails (e.g., confirmations, alerts) using **Nodemailer**.
 
-<!-- ABOUT ME SECTION -->
+---
 
-## ⚡ About Me
+## 🚀 Installation Guide
 
-I am a passionate developer who loves building products that solve real-world problems. My core expertise lies in the **React/Next.js ecosystem**, but my curiosity has driven me deep into the world of **Artificial Intelligence**.
+Follow these steps to get the project up and running locally.
 
-- 🔭 I’m currently working on **[Project Name]** (A SaaS platform integrating LLMs).
-- 🌱 I’m currently learning **Deep Learning with PyTorch** and **Vector Embeddings**.
-- 👯 I’m looking to collaborate on **Open Source AI-wrapper tools**.
-- 💬 Ask me about **Next.js, TypeScript, LangChain, or RAG architectures**.
+### Prerequisites
 
-<br />
+- Node.js (v18+)
+- **Bun** (recommended, as `bun.lockb` is present) or npm/yarn/pnpm.
+- A PostgreSQL database (e.g., Supabase, Neon, or local).
 
-<!-- TECH STACK SECTION -->
+### 1. Clone the repository
 
-## 🛠️ Tech Stack & Tools
+```bash
+git clone <your-repo-url>
+cd ecommerce-admin
+```
 
-<div align="center">
+### 2. Install Dependencies
 
-### **Full Stack Development**
+Using Bun (Recommended):
 
-<img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" />
-<img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" />
-<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-<img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" />
-<img src="https://img.shields.io/badge/tRPC-%232596BE.svg?style=for-the-badge&logo=trpc&logoColor=white" />
-<img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" />
+```bash
+bun install
+```
 
-### **AI, ML & Python**
+Or using npm:
 
-<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
-<img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white" />
-<img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
-<img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" />
-<img src="https://img.shields.io/badge/LangChain-%23000000.svg?style=for-the-badge&logo=chainlink&logoColor=white" />
-<img src="https://img.shields.io/badge/OpenAI-%23412991.svg?style=for-the-badge&logo=openai&logoColor=white" />
+```bash
+npm install
+```
 
-### **Database & Cloud**
+### 3. Environment Variables
 
-<img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" />
-<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
-<img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" />
-<img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white" />
-<img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+Create a `.env` file in the root directory based on the configuration guide below and fill in your specific credentials.
 
-</div>
+### 4. Database Setup
 
-<br />
+Generate the Prisma client and push the schema to your database:
 
-<!-- FEATURED PROJECTS SECTION -->
+```bash
+npx prisma generate
+npx prisma db push
+```
 
-## 🚀 Featured Projects
+### 5. Run the Development Server
 
-| Project                   | Description                                                                                  | Stack                                               |
-| :------------------------ | :------------------------------------------------------------------------------------------- | :-------------------------------------------------- |
-| **[AI Chat Assistant]**   | A chatbot application using RAG (Retrieval Augmented Generation) to chat with PDF documents. | `Next.js` `LangChain` `Pinecone` `OpenAI`           |
-| **[E-Commerce Platform]** | Full stack dashboard with predictive analytics for sales forecasting.                        | `TypeScript` `TRPC` `Python (FastAPI)` `PostgreSQL` |
-| **[Image Generator]**     | A text-to-image generator using Stable Diffusion API with a responsive UI.                   | `React` `Tailwind` `Hugging Face`                   |
+Start the Next.js development server:
 
-<br />
+```bash
+bun run dev
+# or: npm run dev
+```
 
-<!-- GITHUB STATS SECTION -->
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-## 📊 GitHub Stats
+---
 
-<div align="center">
-  <!-- Replace 'your-username' with your actual GitHub username -->
-  <img src="https://github-readme-stats.vercel.app/api?username=[your-username]&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Github Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=[your-username]&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Top Languages" />
-</div>
+## 🔐 Environment Variables (.env)
 
-<br />
+Below is a detailed guide of all the required environment variables to run this project successfully. You must define these in your `.env` file.
 
-<!-- FOOTER / CONNECT -->
-<div align="center">
-  <h3>Let's collaborate!</h3>
-  <p>I am open to freelance work and full-time opportunities.</p>
-</div>
+### Frontend URL
+
+URL for the frontend storefront that will interact with this admin panel.
+
+```env
+FRONTEND_STORE_URL=http://localhost:3001 # Your frontend store URL
+```
+
+### Stripe Configuration
+
+Required for payment processing and webhook handling.
+
+```env
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
+
+### Authentication (Better Auth) - Primary
+
+Configuration for Better Auth and OAuth providers.
+
+```env
+BETTER_AUTH_SECRET=your_super_secret_string
+BETTER_AUTH_URL=http://localhost:3000
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Facebook OAuth
+FACEBOOK_CLIENT_ID=your_facebook_client_id
+FACEBOOK_CLIENT_SECRET=your_facebook_client_secret
+```
+
+### Authentication (Clerk) - Alternative/Legacy
+
+If using Clerk for authentication, provide these keys.
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+```
+
+### Media Uploads (Cloudinary)
+
+Required for product image uploads.
+
+```env
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+```
+
+### Database Configuration (PostgreSQL/Supabase)
+
+Prisma requires connection strings to your PostgreSQL database. If using Supabase or a pooler, separate the transaction and session connections.
+
+```env
+# Transaction connection pooler string (used by Prisma Client)
+DATABASE_URL="postgresql://user:password@host:6543/postgres?pgbouncer=true&connection_limit=1"
+
+# Session connection pooler string (used for direct migrations)
+DIRECT_URL="postgresql://user:password@host:5432/postgres"
+```
+
+### Email Notifications (Nodemailer)
+
+Credentials for sending outgoing emails.
+
+```env
+NODEMAILER_USER="your_email@gmail.com"
+NODEMAILER_APP_PASSWORD="your_app_password" # Use App Passwords for Gmail
+```
